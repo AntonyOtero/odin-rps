@@ -18,6 +18,39 @@ getHumanChoice = () => {
 playGame = () => {
     let humanScore = 0;
     let computerScore = 0;
+
+    playRound = (humanChoice, computerChoice) => {
+        let flexHumanChoice = humanChoice.toLowerCase();
+    
+        if (flexHumanChoice === computerChoice) {
+            // tie
+            console.log(`Tie! You both chose ${flexHumanChoice}`);
+        } else if (flexHumanChoice === "rock") {
+            if (computerChoice === "paper") {
+                computerScore++;
+                console.log("You lose! Paper beats rock.");
+            } else {
+                humanScore++;
+                console.log("You win! rock beats scissors.");
+            }
+        } else if (flexHumanChoice === "paper") {
+            if (computerChoice === "rock") {
+                humanScore++;
+                console.log("You win! Paper beats rock.");
+            } else {
+                computerScore++;
+                console.log("You lose! Scissor beats paper.");
+            }
+        } else if (flexHumanChoice === "scissors") {
+            if (computerChoice === "rock") {
+                computerScore++;
+                console.log("You lose! Rock beats scissors.");
+            } else {
+                humanScore++;
+                console.log("You win! Scissors beats paper.");
+            }
+        }
+    }
 }
 
 playGame();
