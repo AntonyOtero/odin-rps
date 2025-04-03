@@ -14,3 +14,10 @@ getComputerChoice = () => {
 getHumanChoice = () => {
     return prompt("Select Rock, Paper, or Scissors.");
 }
+
+playGame = () => {
+    let humanScore = 0;
+    let computerScore = 0;
+}
+
+playGame();
