@@ -55,6 +55,8 @@ playGame = () => {
     for (let i = 0; i < 5; i++) {
         playRound(getHumanChoice(), getComputerChoice());
     }
+
+    console.log((humanScore > computerScore) ? "Congratulations! You won the game!" : "Oh no! You lost the game!");
 }
 
 playGame();
