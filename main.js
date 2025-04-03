@@ -9,3 +9,8 @@ function getRandomInt(min, max) {
 getComputerChoice = () => {
     return ["rock", "paper", "scissors"][getRandomInt(0,3)];
 }
+
+// Get human input
+getHumanChoice = () => {
+    return prompt("Select Rock, Paper, or Scissors.");
+}
