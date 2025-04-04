@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <div class="score" id="playerScore">Player: 0</div>
-        <div class="score" id="computerScore">CPU: 0</div>
-        <div id="result"></div>
-        <button class="btn" id="rock">Rock</button>
-        <button class="btn" id="paper">Paper</button>
-        <button class="btn" id="scissors">Scissors</button>
+        <div class="scores">
+            <div class="score">
+                <div class="score-title">Player</div>
+                <div class="score-value" id="playerScore">0</div>
+            </div>
+            <div class="score">
+                <div class="score-title">CPU</div>
+                <div class="score-value" id="computerScore">0</div>
+            </div>
+        </div>
+        <div id="result">Make your move.</div>
+        <div class="btn-group">
+            <button class="btn" id="rock">Rock</button>
+            <button class="btn" id="paper">Paper</button>
+            <button class="btn" id="scissors">Scissors</button>
+            <!-- <button class="btn hide" id="restart">Restart</button> -->
+        </div>
     </div>
 </body>
 </html>
