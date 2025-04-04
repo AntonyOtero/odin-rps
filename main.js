@@ -54,11 +54,11 @@ playGame = () => {
                 RESULT.textContent = "You win! Scissors beats paper.";
             }
         }
-        PLAYER_SCORE.textContent = `Player: ${playerScore}`;
-        COMPUTER_SCORE.textContent = `CPU: ${computerScore}`;
+        PLAYER_SCORE.textContent = `${playerScore}`;
+        COMPUTER_SCORE.textContent = `${computerScore}`;
 
         if (playerScore >= 5 || computerScore >= 5) {
-            BUTTONS.forEach(button => document.querySelector(".container").removeChild(button));
+            BUTTONS.forEach(button => button.classList.toggle("hide"));
             RESULT.textContent = (playerScore > computerScore) ? "Congratulations! You won the game!" : "Oh no! You lost the game!";
         }
     }
