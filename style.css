@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    padding: 20px;
+    padding: 60px;
     width: 50vw;
     border: 2px #212121 solid;
     border-radius: 5px;
@@ -33,7 +33,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 2em;
-    margin: 20px 0;
+    margin: 60px 0;
     font-size: 2em;
 }
 
