@@ -11,52 +11,64 @@ getComputerChoice = () => {
 }
 
 // Get human input
-getHumanChoice = () => {
+getPlayerChoice = () => {
     return prompt("Select Rock, Paper, or Scissors.");
 }
 
 playGame = () => {
-    let humanScore = 0;
+    const BUTTONS = document.querySelectorAll(".btn");
+    const RESULT = document.querySelector("#result");
+    const PLAYER_SCORE = document.querySelector("#playerScore");
+    const COMPUTER_SCORE = document.querySelector("#computerScore");
+
+    let playerScore = 0;
     let computerScore = 0;
 
-    playRound = (humanChoice, computerChoice) => {
-        let flexHumanChoice = humanChoice.toLowerCase();
+    playRound = (playerChoice, computerChoice) => {
+        let flexPlayerChoice = playerChoice.toLowerCase();
     
-        if (flexHumanChoice === computerChoice) {
-            // tie
-            console.log(`Tie! You both chose ${flexHumanChoice}`);
-        } else if (flexHumanChoice === "rock") {
+        if (flexPlayerChoice === computerChoice) {
+            RESULT.textContent = `Tie! You both chose ${flexPlayerChoice}`;
+        } else if (flexPlayerChoice === "rock") {
             if (computerChoice === "paper") {
                 computerScore++;
-                console.log("You lose! Paper beats rock.");
+                RESULT.textContent = "You lose! Paper beats rock.";
             } else {
-                humanScore++;
-                console.log("You win! rock beats scissors.");
+                playerScore++;
+                RESULT.textContent = "You win! rock beats scissors.";
             }
-        } else if (flexHumanChoice === "paper") {
+        } else if (flexPlayerChoice === "paper") {
             if (computerChoice === "rock") {
-                humanScore++;
-                console.log("You win! Paper beats rock.");
+                playerScore++;
+                RESULT.textContent = "You win! Paper beats rock.";
             } else {
                 computerScore++;
-                console.log("You lose! Scissor beats paper.");
+                RESULT.textContent = "You lose! Scissor beats paper.";
             }
-        } else if (flexHumanChoice === "scissors") {
+        } else if (flexPlayerChoice === "scissors") {
             if (computerChoice === "rock") {
                 computerScore++;
-                console.log("You lose! Rock beats scissors.");
+                RESULT.textContent = "You lose! Rock beats scissors.";
             } else {
-                humanScore++;
-                console.log("You win! Scissors beats paper.");
+                playerScore++;
+                RESULT.textContent = "You win! Scissors beats paper.";
             }
         }
-    }
-    
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
+        PLAYER_SCORE.textContent = `Player: ${playerScore}`;
+        COMPUTER_SCORE.textContent = `CPU: ${computerScore}`;
     }
 
-    console.log((humanScore > computerScore) ? "Congratulations! You won the game!" : "Oh no! You lost the game!");
+    BUTTONS.forEach(button => {
+        button.addEventListener("click", e => {
+            playRound(e.target.textContent, getComputerChoice());
+
+            if (playerScore >= 5 || computerScore >= 5) {
+                BUTTONS.forEach(button => document.querySelector(".container").removeChild(button));
+                RESULT.textContent = (playerScore > computerScore) ? "Congratulations! You won the game!" : "Oh no! You lost the game!";
+            }
+        });
+    });
+    
 }
 
 playGame();
